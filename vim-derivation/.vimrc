@@ -1,0 +1,2 @@
+set nonu
+set nornu

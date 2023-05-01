@@ -1,0 +1,17 @@
+<%= form_with(model: helloworld) do |form| %>
+  <% if helloworld.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(helloworld.errors.count, "error") %> prohibited this helloworld from being saved:</h2>
+
+      <ul>
+        <% helloworld.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

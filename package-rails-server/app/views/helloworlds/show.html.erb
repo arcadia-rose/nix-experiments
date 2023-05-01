@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @helloworld %>
+
+<div>
+  <%= link_to "Edit this helloworld", edit_helloworld_path(@helloworld) %> |
+  <%= link_to "Back to helloworlds", helloworlds_path %>
+
+  <%= button_to "Destroy this helloworld", @helloworld, method: :delete %>
+</div>

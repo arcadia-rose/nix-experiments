@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Helloworlds</h1>
+
+<div id="helloworlds">
+  <% @helloworlds.each do |helloworld| %>
+    <%= render helloworld %>
+    <p>
+      <%= link_to "Show this helloworld", helloworld %>
+    </p>
+  <% end %>
+</div>
+
+    <p>Hello from Arcadia and Misty</p>
+<%= link_to "New helloworld", new_helloworld_path %>

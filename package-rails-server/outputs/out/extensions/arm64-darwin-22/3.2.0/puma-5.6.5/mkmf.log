@@ -1,0 +1,111 @@
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib pkg-config --exists openssl
+package configuration for openssl is not found
+have_library: checking for BIO_read() in -lcrypto... -------------------- no
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib "clang -o conftest -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/arm64-darwin22 -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/ruby/backward -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wundef  -fno-common -pipe conftest.c  -L. -L/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib -L. -fstack-protector-strong     -lruby-3.2.2  -lpthread  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib "clang -o conftest -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/arm64-darwin22 -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/ruby/backward -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wundef  -fno-common -pipe conftest.c  -L. -L/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib -L. -fstack-protector-strong     -lruby-3.2.2 -lcrypto  -lpthread  "
+conftest.c:14:57: error: use of undeclared identifier 'BIO_read'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))BIO_read; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))BIO_read; return !p; }
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib "clang -o conftest -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/arm64-darwin22 -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/ruby/backward -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wundef  -fno-common -pipe conftest.c  -L. -L/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib -L. -fstack-protector-strong     -lruby-3.2.2 -lcrypto  -lpthread  "
+ld: library not found for -lcrypto
+clang-11: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void BIO_read();
+15: int t(void) { BIO_read(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for BIO_read() in -llibeay32... -------------------- no
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib "clang -o conftest -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/arm64-darwin22 -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/ruby/backward -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wundef  -fno-common -pipe conftest.c  -L. -L/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib -L. -fstack-protector-strong     -lruby-3.2.2 -llibeay32  -lpthread  "
+conftest.c:14:57: error: use of undeclared identifier 'BIO_read'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))BIO_read; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))BIO_read; return !p; }
+/* end */
+
+DYLD_FALLBACK_LIBRARY_PATH=.:/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib "clang -o conftest -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/arm64-darwin22 -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0/ruby/backward -I/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/include/ruby-3.2.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wundef  -fno-common -pipe conftest.c  -L. -L/nix/store/g3jk30jl8dy7ar2n9wj3cp4bva9p30b2-ruby-3.2.2/lib -L. -fstack-protector-strong     -lruby-3.2.2 -llibeay32  -lpthread  "
+ld: library not found for -llibeay32
+clang-11: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void BIO_read();
+15: int t(void) { BIO_read(); return 0; }
+/* end */
+
+--------------------
+
